@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace guessing_game
 {
     class Program
@@ -9,9 +8,8 @@ namespace guessing_game
             Console.WriteLine("Welcome to secret number. shhhhh...");
             Console.WriteLine("Choose a difficulty. Type: ");
             Console.WriteLine("E-easy (8 guesses)  M-medium (6 guesses)  H-hard (4 guesses)");
-            bool userIsFilthyCheater = false;
             string diff = Console.ReadLine().ToLower();
-            int guessesRemaining = 0;
+            double guessesRemaining = 0;
             if (diff == "e")
             {
                 guessesRemaining = 8;
@@ -26,28 +24,19 @@ namespace guessing_game
             }
             else if (diff == "c")
             {
-                guessesRemaining = 100;
-                userIsFilthyCheater = true;
+                guessesRemaining = double.PositiveInfinity;
             }
             else
             {
                 Console.WriteLine("huh?");
                 guessesRemaining = 0;
             }
-
             Random r = new Random();
             int secretNumber = r.Next(1, 101);
-
             while (guessesRemaining > 0)
             {
-                if (userIsFilthyCheater)
-                {
-                    guessesRemaining = 100;
-                }
-
                 Console.WriteLine($"Will you guess the secret number between 1-100? You have {guessesRemaining} guesses remaining.");
                 int userGuess = int.Parse(Console.ReadLine());
-
                 if (userGuess == secretNumber)
                 {
                     Console.WriteLine("Why yes, how did you know?!");
@@ -64,7 +53,7 @@ namespace guessing_game
                     guessesRemaining--;
                 }
             }
-            Console.WriteLine("Thanks for playing!");
+            Console.WriteLine("You're Welcome for playing!");
         }
     }
 }
