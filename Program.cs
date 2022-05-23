@@ -21,9 +21,14 @@ namespace guessing_game
                     Console.WriteLine("Why yes, how did you know?!");
                     guessesRemaining = 0;
                 }
+                else if (userGuess < secretNumber)
+                {
+                    Console.WriteLine("Get your mind out of the gutter, hint hint");
+                    guessesRemaining--;
+                }
                 else
                 {
-                    Console.WriteLine("Noooooooo :')");
+                    Console.WriteLine("Get your head out of the clouds, he said with a sly face.");
                     guessesRemaining--;
                 }
             }
