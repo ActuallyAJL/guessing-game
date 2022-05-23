@@ -9,6 +9,7 @@ namespace guessing_game
             Console.WriteLine("Welcome to secret number. shhhhh...");
             Console.WriteLine("Choose a difficulty. Type: ");
             Console.WriteLine("E-easy (8 guesses)  M-medium (6 guesses)  H-hard (4 guesses)");
+            bool userIsFilthyCheater = false;
             string diff = Console.ReadLine().ToLower();
             int guessesRemaining = 0;
             if (diff == "e")
@@ -23,6 +24,11 @@ namespace guessing_game
             {
                 guessesRemaining = 4;
             }
+            else if (diff == "c")
+            {
+                guessesRemaining = 100;
+                userIsFilthyCheater = true;
+            }
             else
             {
                 Console.WriteLine("huh?");
@@ -34,6 +40,10 @@ namespace guessing_game
 
             while (guessesRemaining > 0)
             {
+                if (userIsFilthyCheater)
+                {
+                    guessesRemaining = 100;
+                }
 
                 Console.WriteLine($"Will you guess the secret number between 1-100? You have {guessesRemaining} guesses remaining.");
                 int userGuess = int.Parse(Console.ReadLine());
