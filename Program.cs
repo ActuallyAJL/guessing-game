@@ -6,7 +6,27 @@ namespace guessing_game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int secretNumber = 42;
+            int guessesRemaining = 4;
+
+            while (guessesRemaining > 0)
+            {
+
+                Console.WriteLine($"Will you guess the secret number? You have {guessesRemaining} guesses remaining.");
+                int userGuess = int.Parse(Console.ReadLine());
+
+                if (userGuess == secretNumber)
+                {
+                    Console.WriteLine("Why yes, how did you know?!");
+                    guessesRemaining = 0;
+                }
+                else
+                {
+                    Console.WriteLine("Noooooooo :')");
+                    guessesRemaining--;
+                }
+            }
+            Console.WriteLine("Thanks for playing!");
         }
     }
 }
